@@ -2,6 +2,8 @@
 
 Um downloader TUI moderno para YouTube, escrito em Go.
 
+![Screenshot da TUI](TUI-screenshot.png)
+
 ## Funcionalidades
 
 - 🎵 **MP3** — Extrair áudio com qualidade de 128, 192, 256 ou 320 kbps
