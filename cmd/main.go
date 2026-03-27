@@ -1,0 +1,19 @@
+// Command youtube-downloader is the entry point for the TUI application.
+package main
+
+import (
+	"fmt"
+	"os"
+
+	tea "github.com/charmbracelet/bubbletea"
+
+	"youtube-downloader/internal/tui"
+)
+
+func main() {
+	p := tea.NewProgram(tui.NewModel(), tea.WithAltScreen())
+	if _, err := p.Run(); err != nil {
+		fmt.Fprintf(os.Stderr, "Erro ao iniciar o programa: %v\n", err)
+		os.Exit(1)
+	}
+}
