@@ -51,16 +51,21 @@ func Run(opts Options, logChan chan<- string) *Result {
 	return execute(args, outDir, logChan)
 }
 
-// prepareOutputDir creates the downloads directory if needed and returns its absolute path.
+// prepareOutputDir creates the downloads directory next to the executable and returns its absolute path.
 func prepareOutputDir() (string, error) {
-	rel := filepath.Join(".", config.DownloadsDir)
-	if err := os.MkdirAll(rel, 0o755); err != nil {
+	exe, err := os.Executable()
+	if err != nil {
+		exe = "."
+	}
+	dir := filepath.Join(filepath.Dir(exe), config.DownloadsDir)
+
+	if err := os.MkdirAll(dir, 0o755); err != nil {
 		return "", fmt.Errorf("erro ao criar diretório de downloads: %w", err)
 	}
 
-	abs, err := filepath.Abs(rel)
+	abs, err := filepath.Abs(dir)
 	if err != nil {
-		return rel, nil
+		return dir, nil
 	}
 
 	return abs, nil

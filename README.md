@@ -1,4 +1,4 @@
-# 🎬 YouTube Downloader
+# YouTube Downloader
 
 Um downloader TUI moderno para YouTube, escrito em Go.
 
@@ -6,11 +6,11 @@ Um downloader TUI moderno para YouTube, escrito em Go.
 
 ## Funcionalidades
 
-- 🎵 **MP3** — Extrair áudio com qualidade de 128, 192, 256 ou 320 kbps
-- 🎬 **MP4** — Baixar vídeos em 360p, 480p, 720p, 1080p, 1440p ou 2160p (4K)
-- 💅 Interface TUI rica com navegação por teclado
-- 📋 Logs em tempo real do progresso do download
-- 📁 Arquivos salvos em `~/Downloads/youtube-dl/`
+- **MP3** — Extrair áudio em 128, 192, 256 ou 320 kbps
+- **MP4** — Baixar vídeos em 360p, 480p, 720p, 1080p, 1440p ou 4K (2160p)
+- Interface TUI com navegação por teclado
+- Logs em tempo real do progresso do download
+- Arquivos salvos na pasta `downloads/` ao lado do executável
 
 ## Dependências
 
@@ -28,21 +28,21 @@ winget install ffmpeg
 ## Uso
 
 ```powershell
-.\youtube-dl.exe
+.\yt-downloader.exe
 ```
 
 ### Controles
 
-| Tecla       | Ação              |
-|-------------|-------------------|
-| `↑` / `↓`  | Navegar           |
-| `Enter`     | Confirmar         |
-| `Esc`       | Voltar            |
-| `r`         | Reiniciar         |
-| `q` / Ctrl+C | Sair             |
+| Tecla        | Ação              |
+|--------------|-------------------|
+| `↑` / `↓`   | Navegar           |
+| `Enter`      | Confirmar         |
+| `Esc`        | Voltar            |
+| `r`          | Reiniciar         |
+| `q` / Ctrl+C | Sair              |
 
-## Compilar do zero
+## Compilar
 
 ```powershell
-go build -o youtube-dl.exe .
+go build -ldflags="-s -w" -o yt-downloader.exe ./cmd/
 ```
